@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Signika Negative", sans-serif;
+}
+
+body {
+    background-color: #2b2b2b;
+}
+#header {
+    position: fixed;
+    background-color: #222222;
+    width: 100%;
+    padding: 10px;
+    color: #DDDDDD;
+    z-index: 1000;
+}
+
+section {
+    display: grid;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    scroll-snap-align: start;
+    color: #DDDDDD
+}
+
+.cover {
+    float: left;
+    width: 500px;
+    height: 500px;
+    background-color: #2b2b2b;
+    position: relative;
+    z-index: 10;
+    justify-content: right;
+    align-items: center;
+    display: flex;
+    
+}
+
+.vl{
+    border-left: 6px solid #DDDDDD;
+    
+    border-radius: 3px;
+    height: 500px;
+    margin-right: 40px;
+    float: left;
+}
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+#textone {
+    float: left;
+    width: 500px;
+    margin-right: 100px;
+}
+
+.centered{
+    text-align: center;
+}
+
+#sec1 .hidden {
+    position: relative;
+    left: -500px;
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: calc(100ms * var(--order));
+    margin-bottom: 10px;
+}
+
+#sec1 .show {
+    float: left;
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+#sec2 .hidden {
+    position: relative;
+
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: calc(100ms * var(--order));
+    margin-bottom: 10px;
+}
+
+#sec2 .show {
+    transform: translateY(-50px);
+    opacity: 1;
+}
+
+
+#sec3 {
+    display: grid;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    scroll-snap-align: start;
+    color: #DDDDDD;
+    padding: 0 auto;
+}
+
+#sec3 h1 {
+    font-size: 50px;
+}
+
+.pillar {
+    border: 6px solid #DDDDDD;
+    border-radius: 5px;
+    width: 200px;
+    height: 300px;
+    float: left;
+    margin: 0px 30px;
+}
+
+
+.pillar p{
+    font-size: 30px;
+}
+
+.pillar:hover{
+    font-size: 100px;
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none !important;
+    }
+}
+
+.hotspot{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: blue;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.hotspot[slot="hotspot-hand"]{
+    --min-hotspot-opacity: 0;
+    background-color: red;
+}
+
+.hotspot[slot="hotspot-app"] {
+    background-color: transparent;
+    border: 3px solid white;
+    --min-hotspot-opacity: .05;
+}.hotspot[slot="hotspot-chap"] {
+    background-color: transparent;
+    border: 3px solid white;
+    --min-hotspot-opacity: .05;
+}.hotspot[slot="hotspot-std"] {
+    background-color: transparent;
+    border: 3px solid white;
+    --min-hotspot-opacity: .05;
+}.hotspot[slot="hotspot-bky"] {
+    background-color: transparent;
+    text-align: center;
+    border: 3px solid white;
+    --min-hotspot-opacity: .05;
+}
+
+.annotation{
+    color: white;
+    text-align: center;
+    position: relative;
+    transform: translate(-25px, -20px);
+}
+/* This keeps child nodes hidden while the element loads */
+:not(:defined) > * {
+display: none;
+}
+/*
+    Margin: How far it is from everyone else
+        size
+    Border: An outline of the div
+        size style color
+    Padding: How far the border is from its contents
+        size
+
+    all can specifiy top, right, left, bottom
+*/
