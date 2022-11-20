@@ -20,6 +20,36 @@ body {
     z-index: 1000;
 }
 
+
+ul {
+	text-transform:uppercase;
+	text-align: left;
+	display: inline;
+	margin: 20px;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+}
+ul li {
+	font: bold 12px/18px sans-serif;
+	display: inline-block;
+	margin-right: -5px;
+	margin-top: 8px;
+	position: relative;
+	padding: 15px 20px;
+	background: #222222;
+	color:#c75f5f;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+ul li:hover {
+	background: #d6c773;
+	color: #252525;
+}
+
 section {
     display: grid;
     height: 100vh;
