@@ -11,6 +11,7 @@
 body {
     background-color: #2b2b2b;
 }
+
 #header {
     position: fixed;
     background-color: #222222;
@@ -60,6 +61,8 @@ section {
     color: #DDDDDD
 }
 
+
+
 .cover {
     float: left;
     width: 500px;
@@ -70,12 +73,12 @@ section {
     justify-content: right;
     align-items: center;
     display: flex;
-    
+
 }
 
-.vl{
+.vl {
     border-left: 6px solid #DDDDDD;
-    
+
     border-radius: 3px;
     height: 500px;
     margin-right: 40px;
@@ -94,8 +97,16 @@ section {
     margin-right: 100px;
 }
 
-.centered{
+.centered {
     text-align: center;
+    justify-content: center;
+}
+
+.pillarcards {
+    justify-content: center;
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #sec1 .hidden {
@@ -107,6 +118,10 @@ section {
     margin-bottom: 10px;
 }
 
+section {
+    clear: both;
+}
+
 #sec1 .show {
     float: left;
     transform: translateX(500px);
@@ -115,15 +130,15 @@ section {
 
 #sec2 .hidden {
     position: relative;
-
+    top: -50px;
+    
     opacity: 0;
     transition: all 1s;
     transition-delay: calc(100ms * var(--order));
-    margin-bottom: 10px;
 }
 
 #sec2 .show {
-    transform: translateY(-50px);
+    transform: translateY(50px);
     opacity: 1;
 }
 
@@ -143,23 +158,21 @@ section {
     font-size: 50px;
 }
 
+
 .pillar {
-    border: 6px solid #DDDDDD;
-    border-radius: 5px;
     width: 200px;
     height: 300px;
     float: left;
     margin: 0px 30px;
+    padding-top: 150px;
 }
 
 
-.pillar p{
-    font-size: 30px;
+.pillar img {
+    margin: 0px;
+    padding: 0px;
 }
 
-.pillar:hover{
-    font-size: 100px;
-}
 
 @media(prefers-reduced-motion) {
     .hidden {
@@ -167,7 +180,7 @@ section {
     }
 }
 
-.hotspot{
+.hotspot {
     display: block;
     width: 20px;
     height: 20px;
@@ -178,7 +191,7 @@ section {
     pointer-events: none;
 }
 
-.hotspot[slot="hotspot-hand"]{
+.hotspot[slot="hotspot-hand"] {
     --min-hotspot-opacity: 0;
     background-color: red;
 }
@@ -187,38 +200,139 @@ section {
     background-color: transparent;
     border: 3px solid white;
     --min-hotspot-opacity: .05;
-}.hotspot[slot="hotspot-chap"] {
+}
+
+.hotspot[slot="hotspot-chap"] {
     background-color: transparent;
     border: 3px solid white;
     --min-hotspot-opacity: .05;
-}.hotspot[slot="hotspot-std"] {
+}
+
+.hotspot[slot="hotspot-std"] {
     background-color: transparent;
     border: 3px solid white;
     --min-hotspot-opacity: .05;
-}.hotspot[slot="hotspot-bky"] {
+}
+
+.hotspot[slot="hotspot-bky"] {
     background-color: transparent;
     text-align: center;
     border: 3px solid white;
     --min-hotspot-opacity: .05;
 }
 
-.annotation{
+.annotation {
     color: white;
     text-align: center;
     position: relative;
     transform: translate(-25px, -20px);
 }
-/* This keeps child nodes hidden while the element loads */
-:not(:defined) > * {
-display: none;
-}
-/*
-    Margin: How far it is from everyone else
-        size
-    Border: An outline of the div
-        size style color
-    Padding: How far the border is from its contents
-        size
 
-    all can specifiy top, right, left, bottom
+/* This keeps child nodes hidden while the element loads */
+:not(:defined)>* {
+    display: none;
+}
+
+/*
+Margin: How far it is from everyone else
+size
+Border: An outline of the div
+size style color
+Padding: How far the border is from its contents
+size
+
+all can specifiy top, right, left, bottom
 */
+.card {
+    position: relative;
+    padding: 40px 32px;
+    clip-path: circle(14% at 50% 26%);
+    transition: all ease-in-out 0.3s;
+    background-color: #fff;
+    float: left;
+    width:17%;
+    color: #222;
+}
+
+.card__infoicon {
+    position: absolute;
+    top: 10px;
+    right: 28px;
+    font-size: 1.4em;
+    color: #000;
+    transition: ease-out 0.3s;
+}
+
+.card__title {
+    margin: 0;
+    font-size: 3em;
+    line-height: 1.8;
+}
+
+.card__description {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.card__credits {
+    margin: 0;
+    padding: 4px 0;
+    font-size: 1.1em;
+}
+
+.card__reference {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    color: #09f;
+    text-decoration: none;
+    transition: ease-in 0.3s;
+}
+
+.card__reference:hover {
+    border-bottom-color: #09f;
+}
+
+.card:hover,
+.card:focus {
+    clip-path: circle(75%);
+    border-radius: 20px;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.12), 0px 3px 18px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    outline: none;
+}
+
+.card:hover .card__infoicon,
+.card:focus .card__infoicon {
+    opacity: 0;
+}
+
+.card:focus {
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.12), 0px 3px 18px rgba(0, 0, 0, 0.08), 0px 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+#thetatau{
+    width: 20%;
+    padding-right: 30px;
+}
+
+#thetatau *{
+    float: right;
+    text-align: right;
+    width: 100%
+}
+
+#thetatau h2{
+    font-size: 30px;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+
+#thetatau h1{
+    font-size: 70px;
+    margin-bottom: -10px;
+    padding-bottom: -5px;
+}
