@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
 
+:root {
+    --car-pace: 6.5s;
+}
 
 * {
     margin: 0;
@@ -8,8 +11,166 @@
     font-family: "Signika Negative", sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
     background-color: #2b2b2b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+}
+
+.wrapper {
+  background: linear-gradient(60deg, #420285, #08bdbd);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.carousel__item {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 0 12px;
+  opacity: 0;
+  filter: drop-shadow(0 2px 2px #555);
+  will-change: transform, opacity;
+  -webkit-animation: carousel-animate-vertical 50s linear infinite;
+          animation: carousel-animate-vertical 50s linear infinite;
+}
+
+
+.carousel__item:nth-child(1) {
+  -webkit-animation-delay: calc(var(--car-pace) * -1);
+          animation-delay: calc(var(--car-pace) * -1);
+}
+
+.carousel__item:nth-child(2) {
+  -webkit-animation-delay: calc(var(--car-pace) * 0);
+          animation-delay: calc(var(--car-pace) * 0);
+}
+
+.carousel__item:nth-child(3) {
+  -webkit-animation-delay: calc(var(--car-pace)* 1);
+          animation-delay: calc(var(--car-pace)* 1);
+}
+
+.carousel__item:nth-child(4) {
+  -webkit-animation-delay: calc(var(--car-pace)* 2);
+          animation-delay: calc(var(--car-pace)* 2);
+}
+
+.carousel__item:nth-child(5) {
+  -webkit-animation-delay: calc(var(--car-pace)* 3);
+          animation-delay: calc(var(--car-pace)* 3);
+}
+
+.carousel__item:nth-child(6) {
+  -webkit-animation-delay: calc(var(--car-pace)* 4);
+          animation-delay: calc(var(--car-pace)* 4);
+}
+
+.carousel__item:nth-child(7) {
+  -webkit-animation-delay: calc(var(--car-pace)* 5);
+          animation-delay: calc(var(--car-pace)* 5);
+}
+
+.carousel__item:nth-child(8) {
+  -webkit-animation-delay: calc(var(--car-pace)* 6);
+          animation-delay: calc(var(--car-pace)* 6);
+}
+
+.carousel__item:last-child {
+  -webkit-animation-delay: calc(var(--car-pace)* -2);
+          animation-delay: calc(var(--car-pace)* -2);
+}
+
+.carousel__item-head {
+  border-radius: 50%;
+  background-color: #d7f7fc;
+  width: 90px;
+  height: 90px;
+  padding: 14px;
+  position: relative;
+  margin-right: -45px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.carousel__item-body {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 90px 160px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* @-webkit-keyframes carousel-animate-vertical {} */
+
+
+@keyframes carousel-animate-vertical {
+  0% {
+    transform: translateY(220%) scale(1);
+    opacity: 0;
+    visibility: hidden;
+  }
+  1%, 13% {
+    transform: translateY(110%) scale(1);
+    opacity: 0.4;
+    visibility: visible;
+  }
+  14%, 26% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  27%, 39% {
+    transform: translateY(-110%) scale(1);
+    opacity: 0.4;
+    visibility: visible;
+  }
+  40% {
+    transform: translateY(-220%) scale(1);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-220%) scale(1);
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 #header {
@@ -36,7 +197,7 @@ ul li {
 	margin-right: -5px;
 	margin-top: 8px;
 	position: relative;
-	padding: 15px 20px;
+	padding: 18px 20px;
 	background: #222222;
 	color:#c75f5f;
 	cursor: pointer;
